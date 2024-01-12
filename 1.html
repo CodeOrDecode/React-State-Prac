@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+</html>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+
+<script type="text/babel">
+
+    function Counter() {
+        let [count, setCount] = React.useState(0)
+        let [balance, setBalance] = React.useState(3000)
+        function click() {
+            // count[1](count[0] + 5);
+            setCount(count + 5);
+        }
+
+        return (
+            <>
+                <p>{count}</p>
+
+                <button onClick={click}>Click</button>
+                <p>Initial balance is : {balance}</p>
+                <button onClick={() => {
+                    setBalance(balance*2)
+                }}>Double the amount in 25 days</button>
+
+            </>
+        );
+    }
+    const reactRoot = ReactDOM.createRoot(document.getElementById("root"));
+
+    reactRoot.render(<Counter />);
+</script>
